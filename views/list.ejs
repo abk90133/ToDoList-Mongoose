@@ -1,0 +1,46 @@
+<%- include("header") %>
+
+    <div class="box" id="heading">
+
+      <h1> <%= listTitle %> </h1>
+    </div>
+
+    <div class="box">
+
+    <%  newListItems.forEach(function(item){ %>
+      <form action="/delete" method="post">
+        <!-- <div class="item">
+        <input type="checkbox" name="checkbox" value="<%=item._id%>" onChange="this.form.submit()">
+        here the onChnage method is used to submit a form when a checkbox is ticked
+         // <p><%=item.name%></p> -->
+        <!-- </div> -->
+
+        <!-- //ABOVE PIECE OF CODE WILL ONLY ALLOW US TO DELETE THE ITEMS WHICH IS PRESENT ON THE HOME ROUTE, TO AVOID THAT WE ARE USING THE BELOW code
+        //WITH EXTRA type="hidden" -->
+
+        <div class="item">
+        <input type="checkbox" name="checkbox" value="<%=item._id%>" onChange="this.form.submit()">
+        <%# <!-- here the onChnage method is used to submit a form when a checkbox is ticked %>
+        <p><%=item.name%></p>
+        </div>
+        <input type="hidden" name="listName" value="<%=listTitle%>"></<input>
+        <!-- 10A -->
+        <!-- this type="hidden" will not allow the user to see the listname -->
+
+        </form>
+    <%  }); %>
+
+    <!-- HERE WE HAVE REPLACED IT WITH THE FOR LOOP -->
+
+    <form class="item" action="/" method="post">
+      <input type="text" name="value"  placeholder="What you want to add?" autocomplete="off">
+      <!-- //here the autocomplete="off" is basically used to not get the suggestions when we want to add any item -->
+      <button type="submit" name="list" value=<%= listTitle %> Add</button>
+      <!-- we have kept the logic here so that it will enable the entry to the point only where the entry is made. ie. to /contact or /work -->
+      <!-- and also it will redirect the entry to the homeroute -->
+    </form>
+
+
+      </div>
+
+<%- include("footer") %>

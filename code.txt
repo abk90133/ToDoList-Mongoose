@@ -1,0 +1,11 @@
+<%  if(kindOfDay === "Saturday"  || kindOfDay === "Sunday") { %>
+  <h1 style="color: purple">Today is <%= kindOfDay %>!</h1>
+<% } else { %>
+  <h1 style="color: pink">Today is <%= kindOfDay %>!</h1>
+<% } %>
+
+above code is used in the list.ejs when we want to Display the Day in diff color
+
+
+  <%# here above we have use ""<% %>",
+  <%# above which ius called as the EJS template which are used to run the line f code in the EJS template, on the non html line %> %>
